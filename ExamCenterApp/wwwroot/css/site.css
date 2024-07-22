@@ -2,6 +2,10 @@ html {
   font-size: 14px;
 }
 
+.h0{
+    font-size:3.5rem;
+}
+
 @media (min-width: 768px) {
   html {
     font-size: 16px;
@@ -9,7 +13,7 @@ html {
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem var( --bs-white), 0 0 0 0.25rem #258cfb;
 }
 
 html {
@@ -19,4 +23,50 @@ html {
 
 body {
   margin-bottom: 60px;
+}
+.floating_textbox {
+    padding-top: 0.75rem;
+    border-width: 0px;
+    border-bottom-width: 0.15rem;
+    border-color: var(--bs-grey-dark);
+    border-radius: 0px;
+    width: fit-content;
+}
+.login-btn {
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    color: var(--bs-grey-dark);
+    border-width: 0px;
+}
+
+    .login-btn:hover {
+        color: var(--bs-red);
+        border-width: 0px;
+        border-bottom-width: 0.15rem;
+        border-color: var(--bs-gray-dark);
+        border-radius: 0px;
+    }
+.center{
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+.card-cover {
+    background-color: var(--bs-gray-light);
+    border-radius: 1.5rem;
+    padding: 1rem;
+    margin-bottom: 1.7rem;
+}
+#inner-card {
+    background-color: #F8DBDB;
 }

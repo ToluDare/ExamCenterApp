@@ -1,6 +1,40 @@
-﻿@{
-    ViewData["Title"] = "Privacy Policy";
-}
-<h1>@ViewData["Title"]</h1>
+﻿
+    <div class="row" style="margin-bottom:2rem;">
+        <div class="col">
+            <h3>Hello Name,</h3>
+        </div>
+        <div class="col-6"></div>
 
-<p>Use this page to detail your site's privacy policy.</p>
+    <div class="col-sm-1" style="width:fit-content;">
+            <button type="submit" class="login-btn" style="border-bottom-width: 0; width:fit-content"> @* !EDIT!*@
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear-wide" viewBox="0 0 16 16">
+                    <path d="M8.932.727c-.243-.97-1.62-.97-1.864 0l-.071.286a.96.96 0 0 1-1.622.434l-.205-.211c-.695-.719-1.888-.03-1.613.931l.08.284a.96.96 0 0 1-1.186 1.187l-.284-.081c-.96-.275-1.65.918-.931 1.613l.211.205a.96.96 0 0 1-.434 1.622l-.286.071c-.97.243-.97 1.62 0 1.864l.286.071a.96.96 0 0 1 .434 1.622l-.211.205c-.719.695-.03 1.888.931 1.613l.284-.08a.96.96 0 0 1 1.187 1.187l-.081.283c-.275.96.918 1.65 1.613.931l.205-.211a.96.96 0 0 1 1.622.434l.071.286c.243.97 1.62.97 1.864 0l.071-.286a.96.96 0 0 1 1.622-.434l.205.211c.695.719 1.888.03 1.613-.931l-.08-.284a.96.96 0 0 1 1.187-1.187l.283.081c.96.275 1.65-.918.931-1.613l-.211-.205a.96.96 0 0 1 .434-1.622l.286-.071c.97-.243.97-1.62 0-1.864l-.286-.071a.96.96 0 0 1-.434-1.622l.211-.205c.719-.695.03-1.888-.931-1.613l-.284.08a.96.96 0 0 1-1.187-1.186l.081-.284c.275-.96-.918-1.65-1.613-.931l-.205.211a.96.96 0 0 1-1.622-.434zM8 12.997a4.998 4.998 0 1 1 0-9.995 4.998 4.998 0 0 1 0 9.996z" />
+                </svg>
+            </button>
+        </div>
+        <div class="col-sm-1" style="padding-left:0.3rem;">
+        <button type="submit" class="login-btn" style="padding-bottom:0.4rem;"><h6 style="margin-bottom:0rem;">Logout</h6></button>@* !EDIT!*@
+        </div>
+    </div>
+<div class="row card-cover">
+   <div class="row">
+       <div class="col-3" style="width:fit-content; padding-right=0rem;">
+            <h4>Current Session</h4>
+       </div>
+        <div class="col-sm-1" style="width:fit-content; padding-left:0rem;">
+            <button type="submit" class="login-btn" style="border-bottom-width:0; padding-left:0rem; ">
+                @* !EDIT!*@
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill=var(--bs-red) class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                    <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                </svg>  @* !EDIT! javascript to make it change to up arrow when clicked.*@
+        </div>
+   </div>
+    
+    <div class="card card-cover" id="inner-card">
+        <div class="card-body">
+           
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="card-link">Card link</a>
+        </div>
+    </div>
+</div>
