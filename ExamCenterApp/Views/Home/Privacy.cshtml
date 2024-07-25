@@ -22,11 +22,13 @@
             <h4>Current Session</h4>
        </div>
         <div class="col-sm-1" style="width:fit-content; padding-left:0rem;">
-            <button type="submit" class="login-btn" style="border-bottom-width:0; padding-left:0rem; ">
+            <a data-toggle="card" href="#inner-card" role="button" aria-expanded="false" aria-controls="card" style="border-bottom-width:0; padding-left:0rem;">
                 @* !EDIT!*@
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill=var(--bs-red) class="bi bi-caret-down-fill" viewBox="0 0 16 16">
                     <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
                 </svg>  @* !EDIT! javascript to make it change to up arrow when clicked.*@
+                </a>
+               
         </div>
    </div>
     
@@ -36,5 +38,14 @@
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             <a href="#" class="card-link">Card link</a>
         </div>
+    </div>
+</div>
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Button with data-target
+</button>
+
+<div class="collapse" id="collapseExample">
+    <div class="card card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
     </div>
 </div>
