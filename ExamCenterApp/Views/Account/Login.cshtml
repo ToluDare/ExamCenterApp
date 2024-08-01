@@ -1,0 +1,29 @@
+﻿@model ExamCenterApp.ViewModel.Login_ViewModel
+
+<div class="container center" style="padding-top:10%">
+    <h4 class="center" >MacEwan's</h4>
+    <h1 class="center h0">Exam Center</h1>
+</div>
+
+<div style="height:5rem"></div>
+
+<div class="container" style="max-width: fit-content;">
+    <form asp-action="Login" asp-controller="Account"  method="post"> 
+        <div class="form-group" style="padding-bottom:1rem;">
+            <input asp-for="Email" name="Email" type="email" class="floating-textbox form-control" aria-describedby="emailHelp" placeholder="Enter email">
+    
+        </div>
+        <div class="form-group" style="padding-bottom:1rem;">
+            <input asp-for="Password" name="Password" type="password" class="floating-textbox form-control" placeholder="Password">
+        </div>
+       <div class="center">
+            <button type="submit" class="login-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-unlock-fill" viewBox="0 0 16 16">
+                    <path d="M11 1a2 2 0 0 0-2 2v4a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h5V3a3 3 0 0 1 6 0v4a.5.5 0 0 1-1 0V3a2 2 0 0 0-2-2" />
+                </svg> Login
+            </button>
+        </div>
+
+    </form>
+</div>
+

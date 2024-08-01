@@ -1,0 +1,38 @@
+﻿@model ExamCenterApp.ViewModel.Student_Model
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Student Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Course </th>
+            <th scope="col">Exam Start Time</th>
+            <th scope="col">Exam Duration</th>
+            <th scope="col">Teacher</th>
+            <th scope="col">Additional Notes</th>
+
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            @foreach (var obj in Model.students)
+            {
+               
+            <tr>
+                <td>@obj.id</td>
+                <td>@obj.user_id</td>
+                <td>@obj.first_name + " " + @obj.last_name</td>
+                <td>@obj.exam_course</td>
+                <td>@obj.exam_start_time</td>
+                <td>@obj.exam_duration</td>
+                <td>@obj.teacher_name + ", " + @obj.teacher_email</td>
+                <td>@obj.additional_notes</td>
+
+             </tr>
+            }
+    </tbody>
+</table>
+
+

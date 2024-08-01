@@ -25,6 +25,7 @@ builder.Services.AddSingleton<IEmail_Configuration>(builder.Configuration.GetSec
 builder.Services.AddHangfire(x => x.UseSqlServerStorage(builder.Configuration.GetConnectionString("ExamCenterAppHangFire")));
 
 builder.Services.AddScoped<IUser_Helper, User_Helper>();
+builder.Services.AddScoped<IEmail_Sender , Email_Sender>();
 builder.Services.AddHttpContextAccessor();
 GlobalJobFilters.Filters.Add(new ExpirationTimeAttribute());
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -39,7 +40,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(sqlConnectionBuilder.ConnectionString);
 });
 builder.Configuration.AddJsonFile("appsettings.json");
-builder.Services.AddIdentity<Application_Users, IdentityRole>(options =>
+builder.Services.AddIdentity<Application_Users,IdentityRole>(options =>
 {
     options.Password.RequireDigit = false;
     options.Password.RequiredLength = 3;
