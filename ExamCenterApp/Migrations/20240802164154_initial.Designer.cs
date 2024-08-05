@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ExamCenterApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240730183417_Pilot")]
-    partial class Pilot
+    [Migration("20240802164154_initial")]
+    partial class initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -66,11 +66,22 @@ namespace ExamCenterApp.Migrations
                     b.Property<TimeSpan>("exam_duration")
                         .HasColumnType("time");
 
+                    b.Property<DateTime>("exam_end_time")
+                        .HasColumnType("datetime2");
+
                     b.Property<DateTime>("exam_start_time")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("first_name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("is_present")
                         .HasColumnType("bit");
+
+                    b.Property<string>("last_name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("teacher_email")
                         .IsRequired()
@@ -80,15 +91,9 @@ namespace ExamCenterApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("user_id")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
                     b.HasKey("id");
 
                     b.HasIndex("Exam_SessionId");
-
-                    b.HasIndex("user_id");
 
                     b.ToTable("Student");
                 });
@@ -330,14 +335,6 @@ namespace ExamCenterApp.Migrations
                     b.HasOne("ExamCenterApp.Models.Exam_Session", null)
                         .WithMany("students")
                         .HasForeignKey("Exam_SessionId");
-
-                    b.HasOne("ExamCenterApp.Models.Application_Users", "user")
-                        .WithMany()
-                        .HasForeignKey("user_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("user");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

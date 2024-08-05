@@ -31,9 +31,9 @@ html {
   }
 }
 
-/*.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
     box-shadow: 0 0 0 0.1rem var( --bs-white), 0 0 0 0.25rem #258cfb;
-}*/
+}
 
 html {
   position: relative;
@@ -47,40 +47,56 @@ body {
     background-position:center;
     background-size:cover;
 }
-}
+
 .floating-textbox {
     padding-top: 0.75rem;
-    border-width: 100px;
-    border-bottom-width: 0.25rem;
-    border-color: var(--bs-grey-dark);
-    border-radius: 0px;
-    width: fit-content;
-}
-.login-btn {
-    display: inline-block;
-    font-weight: 400;
-    line-height: 1.5;
-    text-align: center;
-    vertical-align: middle;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-    background-color: var(--bs-red);
-    padding: 0.375rem 0.75rem;
-    font-size: 1rem;
-    color: var(--bs-beige);
     border-width: 0px;
-    border-radius: 40px;
-    padding: 0.5rem;
-
+    border-bottom-width: 0.15rem;
+    border-color: var(--bs-red);
+    border-radius: 0px;
+    background-color: transparent;
+    color: var(--bs-gray-dark);
+   
 }
+    .floating-textbox:active .floating-textbox:focus {
+        outline: none !important;
+        box-shadow: none;
+    }
+    
+
+    .login-btn {
+        display: inline-block;
+        font-weight: 400;
+        line-height: 1.5;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+        background-color: var(--bs-red);
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        color: var(--bs-beige);
+        border-width: 0px;
+        border-radius: 40px;
+        padding: 0.5rem;
+        padding-left: 1.3rem;
+        padding-right: 1.3rem;
+    }
 
 .center{
     max-width: fit-content;
     margin-left: auto;
     margin-right: auto;
     color: var(--bs-red);
+    
+}
+#logo {
+    width:50px;
+    margin: auto;
+    display: block;
+    padding-bottom: 1rem;
 }
 .card-cover {
     background-color: var(--bs-gray-light);
@@ -91,3 +107,4 @@ body {
 #inner-card {
     background-color: #F8DBDB;
 }
+

@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using OfficeOpenXml;
 using System;
 using System.Security.Claims;
 
@@ -58,6 +59,9 @@ builder.Services.Configure<FormOptions>(x =>
     x.MultipartBodyLengthLimit = int.MaxValue;
     x.MultipartHeadersLengthLimit = int.MaxValue;
 });
+ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -81,7 +85,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Account}/{action=Login}/{id?}");
 
 app.Run();
 static void UpdateDatabase(IApplicationBuilder app)
@@ -96,7 +100,6 @@ static void UpdateDatabase(IApplicationBuilder app)
         }
     }
 }
-
 
 void HangFireConfiguration(IApplicationBuilder app)
 {

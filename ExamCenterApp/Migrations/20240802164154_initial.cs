@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ExamCenterApp.Migrations
 {
     /// <inheritdoc />
-    public partial class Pilot : Migration
+    public partial class initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -183,25 +183,21 @@ namespace ExamCenterApp.Migrations
                 {
                     id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    user_id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    first_name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    last_name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     exam_course = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     exam_duration = table.Column<TimeSpan>(type: "time", nullable: false),
                     exam_start_time = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    is_present = table.Column<bool>(type: "bit", nullable: false),
+                    exam_end_time = table.Column<DateTime>(type: "datetime2", nullable: false),
                     teacher_name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     teacher_email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    is_present = table.Column<bool>(type: "bit", nullable: false),
                     additional_notes = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Exam_SessionId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Student", x => x.id);
-                    table.ForeignKey(
-                        name: "FK_Student_AspNetUsers_user_id",
-                        column: x => x.user_id,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Student_Exam_Sessions_Exam_SessionId",
                         column: x => x.Exam_SessionId,
@@ -252,11 +248,6 @@ namespace ExamCenterApp.Migrations
                 name: "IX_Student_Exam_SessionId",
                 table: "Student",
                 column: "Exam_SessionId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Student_user_id",
-                table: "Student",
-                column: "user_id");
         }
 
         /// <inheritdoc />

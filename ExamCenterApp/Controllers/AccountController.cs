@@ -87,7 +87,7 @@ namespace ExamCenterApp.Controllers
         //GET
         [AllowAnonymous]
 
-        public IActionResult Login()
+        public IActionResult Login() 
         {
             
             return View();

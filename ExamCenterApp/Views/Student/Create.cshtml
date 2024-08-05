@@ -1,0 +1,9 @@
+﻿@model ExamCenterApp.ViewModel.Student_Model;
+
+<form asp-action="Create" method="post" enctype="multipart/form-data" >
+    <div class="form-group">
+        <label asp-for="student_excel_sheet">Student Spreadsheet</label>
+        <input asp-for="student_excel_sheet" name="student_excel_sheet" type="file" class="form-control">
+    </div>
+    <input type="submit" value="Submit" class="btn btn-primary"/>
+</form>
