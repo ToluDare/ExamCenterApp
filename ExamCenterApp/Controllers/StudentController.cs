@@ -29,6 +29,7 @@ namespace ExamCenterApp.Controllers
                 exam_course = student.exam_course,
                 exam_duration = student.exam_duration,
                 exam_start_time = student.exam_start_time,
+                exam_end_time = student.exam_end_time,
                 is_present= student.is_present,
                 teacher_name= student.teacher_name,
                 teacher_email = student.teacher_email,
@@ -118,7 +119,8 @@ namespace ExamCenterApp.Controllers
             { "exam_start_time", DateTime.Now },
             { "exam_end_time", DateTime.Now.AddHours(1) },
             { "teacher_name", "Mr(s)....." },
-            { "teacher_email", "teacher@example.com" }
+            { "teacher_email", "teacher@example.com" },
+            { "additional_notes", "......." }
         };
 
             foreach (var property in typeof(Student_ViewModel).GetProperties())

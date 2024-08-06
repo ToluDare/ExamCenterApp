@@ -8,7 +8,6 @@ namespace ExamCenterApp.ViewModel
     {
      
         public int id { set; get; }
-        public string user_id { set; get; }
         public string first_name { get; set; }
         public string last_name { get; set; }
         public string exam_course { get; set; }
