@@ -151,25 +151,55 @@ namespace ExamCenterApp.Controllers
             }
             return true;
         }
-        public IActionResult Edit()
+        public IActionResult Edit(int id)
         {
-            return View();
+            var db = new Student();
+            if (id > 0)
+            {
+                db = _applicationDbContext.Student.FirstOrDefault(u => u.id == id);
+            }
+            return View(db );
         }
 
         [HttpPost]
         public IActionResult Edit(Student obj)
-        {
-            return View();
-        }
-        public IActionResult Delete()
-        {
-            return View();
-        }
 
-        [HttpPost]
-        public IActionResult Delete(Student obj)
         {
-            return View();
+            if(obj != null)
+            {
+                var db = _applicationDbContext.Student.FirstOrDefault(u => u.id == obj.id);
+                if (db != null)
+                {
+                    db.first_name = obj.first_name;
+                    db.last_name = obj.last_name;
+                    db.exam_course = obj.exam_course;
+                    db.exam_start_time = obj.exam_start_time;
+                    db.exam_duration = obj.exam_duration;
+                    db.exam_end_time = obj.exam_start_time.Add(obj.exam_duration);
+                    db.teacher_name = obj.teacher_name;
+                    db.teacher_email = obj.teacher_email;
+                    db.additional_notes = obj.additional_notes;
+                }
+                _applicationDbContext.Student.Update(db);
+                _applicationDbContext.SaveChanges();
+            }
+            return RedirectToAction("Student_Index");
+        }
+    
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            if (id > 0)
+            {
+                var db = _applicationDbContext.Student.FirstOrDefault(u => u.id == id);
+                if (db != null)
+                {
+                    _applicationDbContext.Remove(db);
+                    _applicationDbContext.SaveChanges();
+                    return RedirectToAction("Student_Index");
+                }
+            }
+            return NotFound();
         }
     }
 }

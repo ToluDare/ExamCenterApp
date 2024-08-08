@@ -1,0 +1,58 @@
+﻿@model ExamCenterApp.Models.Student;
+<form asp-action="Edit" method="post" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-6 m-2">
+            <div class="form-group">
+                <label asp-for="first_name" class="control-label"></label>
+                <input asp-for="first_name" asp-name="first_name" type="text" class="form-control" />
+            </div>
+        </div>
+        <div class="col-6 m-2">
+            <div class="form-group">
+                <label asp-for="last_name" class="control-label"></label>
+                <input asp-for="last_name" asp-name="last_name" type="text" class="form-control" />
+            </div>
+        
+        </div>
+     </div>
+    <div class="row">
+        <div class="col-4 m-2">
+            <div class="form-group">
+                <label asp-for="exam_course" class="control-label"></label>
+                <input asp-for="exam_course" asp-name="exam_course" type="text" class="form-control" />
+            </div>
+        </div>
+        <div class="col-4 m-2">
+            <div class="form-group">
+                <label asp-for="exam_duration" class="control-label"></label>
+                <input asp-for="exam_duration" asp-name="exam_duration" type="time" class="form-control" />
+            </div>
+        </div>
+        <div class="col-4 m-2">
+            <div class="form-group">
+                <label asp-for="exam_start_time" class="control-label"></label>
+                <input asp-for="exam_start_time" asp-name="exam_start_time" type="time" class="form-control" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 m-2">
+            <div class="form-group">
+                <label asp-for="teacher_name" class="control-label"></label>
+                <input asp-for="teacher_name" asp-name="teacher_name" type="text" class="form-control" />
+            </div>
+        </div>
+        <div class="col-6 m-2">
+            <div class="form-group">
+                <label asp-for="teacher_email" class="control-label"></label>
+                <input asp-for="teacher_email" asp-name="teacher_email" type="email" class="form-control" />
+            </div>
+        </div>
+    </div>
+    <div class="form-group m-2">
+        <label asp-for="additional_notes" class="control-label"></label>
+        <input asp-for="additional_notes" asp-name="additional_notes" type="text" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
