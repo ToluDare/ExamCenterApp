@@ -35,7 +35,7 @@ namespace ExamCenterApp.Controllers
                 teacher_email = student.teacher_email,
                 additional_notes = student.additional_notes
             }).ToList();
-            model.students= list_of_student;
+            model.students= list_of_student.OrderBy(u => u.exam_start_time).ToList();
 
             return View(model);
         }
@@ -201,5 +201,7 @@ namespace ExamCenterApp.Controllers
             }
             return NotFound();
         }
+
+       
     }
 }

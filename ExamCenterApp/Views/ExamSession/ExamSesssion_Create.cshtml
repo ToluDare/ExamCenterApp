@@ -1,0 +1,62 @@
+﻿@model ExamCenterApp.ViewModel.ExamSession_ViewModel
+
+@{
+    ViewData["Title"] = "Create Exam Session";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form action="Create" comtroller="ExamSession" method="post">
+    @if (Model.Ids != null)
+    {
+    for (int i = 0; i < Model.Ids.Count(); i++)
+    {
+    <input type="hidden" name="Ids[@i]" value="@Model.Ids[i]" />
+    }
+    }
+
+    <div class="form-group">
+        <label asp-for="startTime">Start Time</label>
+        <input asp-for="startTime" readonly type="texts" class="form-control" value=" @Model.startTime" name="startTime">
+
+    </div>
+    <div class="form-group">
+        <label asp-for="date">Date</label>
+        <input asp-for="date" readonly type="text" class="form-control" value="@Model.date" name="date">
+    </div>
+    <div class="form-group">
+        <label asp-for="location">Location</label>
+        <input asp-for="location" type="text" class="form-control" name="location">
+
+    </div>
+    <div class="form-group">
+        <label asp-for="Invigilators_Id">Invigilator</label>
+        <select asp-for="Invigilators_Id" name="invigilator" class="form-control invigilators" multiple="multiple">
+            <option disabled selected>--Select Invigilators--</option>
+            @foreach (var item in ViewBag.Invigilators)
+            {
+                <option value="@item.Value">@item.Text</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        
+        <input asp-for="returnUrl" type="hidden" class="form-control">
+
+    </div>
+    <div class="col-6 col-md-3 ">
+        <button type="submit" class="btn btn-primary form-control" style="width:100%">Submit</button>
+    </div>
+</form>
+
+@section Scripts {
+    
+    <script type="text/javascript">
+        debugger;
+        $(document).ready(function () {
+            $('.invigilators').select2();
+        });</script>
+    
+}
+   
+   
