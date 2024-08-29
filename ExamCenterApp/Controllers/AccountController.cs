@@ -47,40 +47,48 @@ namespace ExamCenterApp.Controllers
             var result = await _userManager.CreateAsync(user, invigilator_pass).ConfigureAwait(false);
             if (result.Succeeded)
             {
-                //Note: CREATE ROLE
-                //var add_user_to_role = await _userManager.AddToRoleAsync(user, "EXAM SUPERVISOR").ConfigureAwait(false);
-                //if (add_user_to_role.Succeeded)
-                //{
+            //Note: CREATE ROLE
+                var add_user_to_role = await _userManager.AddToRoleAsync(user, "ExamInvigilator").ConfigureAwait(false);
+                if (add_user_to_role.Succeeded)
+                {
+                    string link_to_click = HttpContext.Request.Scheme.ToString() + "://" + HttpContext.Request.Host.ToString() + "/Account/Login";
+                    string subject = "Exam Supervisor Invitation";
+                    string email_address = model.email;
 
-                //}
+                    //NOTE: Format the Email
+
+                    var messageBuilder = new StringBuilder();
+                    messageBuilder.AppendLine($"Hey {user.first_name},");
+                    messageBuilder.AppendLine();
+                    messageBuilder.AppendLine("You have been invited to be an Exam Invigilator at the MacEwan Exam Center.");
+                    messageBuilder.AppendLine("Visit the website or click the link: " + link_to_click + ", and input your login details.");
+                    messageBuilder.AppendLine();
+                    messageBuilder.AppendLine("Email: " + model.email);
+                    messageBuilder.AppendLine("Password: " + invigilator_pass);
+                    messageBuilder.AppendLine();
+                    messageBuilder.AppendLine("You can change your password later.");
+                    messageBuilder.AppendLine("Do not share your details with anyone!");
+                    string message = messageBuilder.ToString();
+
+
+                    if (model.email != null)
+                    {
+                        _email_sender.SendEmail(email_address, subject, message);
+
+                    }
+                }
+                else
+                {
+                    // TempData message = "Exam Invigilator has not been created successfully";
+                }
+
             }
-            string link_to_click = HttpContext.Request.Scheme.ToString() +"://" + HttpContext.Request.Host.ToString() + "/Account/Login";
-            string subject = "Exam Supervisor Invitation";
-            string email_address = model.email;
-
-            //NOTE: Format the Email
-            
-            var messageBuilder = new StringBuilder();
-            messageBuilder.AppendLine($"Hey {user.first_name},");
-            messageBuilder.AppendLine();
-            messageBuilder.AppendLine("You have been invited to be an Exam Invigilator at the MacEwan Exam Center.");
-            messageBuilder.AppendLine("Visit the website or click the link: " + link_to_click + ", and input your login details.");
-            messageBuilder.AppendLine();
-            messageBuilder.AppendLine("Email: " + model.email);
-            messageBuilder.AppendLine("Password: " + invigilator_pass);
-            messageBuilder.AppendLine();
-            messageBuilder.AppendLine("You can change your password later.");
-            messageBuilder.AppendLine("Do not share your details with anyone!");
-            string message = messageBuilder.ToString();
-
-
-            if (model.email != null)
+            else
             {
-                _email_sender.SendEmail(email_address,subject,message);
-                
+                // TempData message = "Exam Invigilator has not been created successfully";
             }
-           // TempData message = "Exam Invigilator has been created successfully";
-            return View();
+
+            return View(model);
             
         }
 

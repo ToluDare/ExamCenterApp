@@ -1,5 +1,6 @@
 using ExamCenterApp.Database;
 using ExamCenterApp.Helpers;
+using ExamCenterApp.MiddleWare;
 using ExamCenterApp.Models;
 using ExamCenterApp.Services;
 using Hangfire;
@@ -63,6 +64,11 @@ ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
 
 var app = builder.Build();
+using (var scope= app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    SeedData.Initialize(services).Wait();
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

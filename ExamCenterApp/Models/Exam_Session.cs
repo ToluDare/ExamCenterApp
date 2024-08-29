@@ -11,6 +11,7 @@ namespace ExamCenterApp.Models
         public DateTime start_date_time { get; set; }
         public string location { get; set; }
         public ICollection<Student> students { get; set; }
+        public DateTime date_created { get; set; } = DateTime.Now;
         
     }
 }

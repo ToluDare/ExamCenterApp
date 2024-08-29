@@ -3,6 +3,7 @@ using ExamCenterApp.Models;
 using ExamCenterApp.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace ExamCenterApp.Controllers
 {
@@ -17,6 +18,17 @@ namespace ExamCenterApp.Controllers
 
         public IActionResult Index()
         {
+            var session = _db.Exam_Sessions.Include(u => u.students).Include(u => u.User).OrderByDescending(u => u.date_created).ThenBy(u => u.start_date_time).Select(ab => new ExamSession_ViewModel
+            {
+               Id= ab.Id,
+               location=ab.location,
+               DateTime = ab.start_date_time,
+               students = ab.students,
+               invigilators_name = ab.User.first_name + " " + ab.User.last_name
+             
+
+
+            }).ToList();
             return View();
         }
         public async Task<IActionResult> ExamSesssion_Create(int[] ids, string returnUrl)

@@ -1,5 +1,32 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model IEnumerable<ExamCenterApp.ViewModel.ExamSession_ViewModel>;
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Date </th>
+            <th scope="col">Time</th>
+            <th scope="col">Invigilator </th>
+            <th scope="col">Location </th>
+            <th scope="col">Number of Students</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @if(Model !=null && Model.Any()){
+            @foreach (var obj in Model )
+            {
+               
+                <tr>
+                    <td> @obj.DateTime.DayOfWeek @obj.DateTime.Day,@obj.DateTime.ToString("MMM")</td>
+                    <td>@obj.DateTime.ToString("hh:mm tt")</td>
+                    <td> @obj.invigilators_name</td>
+                    <td> @obj.location</td>
+                    <td> 
+                        @obj.students.Count();
+                    </td>
+                </tr>
+            }
+        }
+
+    </tbody>
+   </table>
+        
