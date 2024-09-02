@@ -42,7 +42,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(sqlConnectionBuilder.ConnectionString);
 });
 builder.Configuration.AddJsonFile("appsettings.json");
-builder.Services.AddIdentity<Application_Users,IdentityRole>(options =>
+builder.Services.AddIdentity<Application_Users, IdentityRole>(options =>
 {
     options.Password.RequireDigit = false;
     options.Password.RequiredLength = 3;

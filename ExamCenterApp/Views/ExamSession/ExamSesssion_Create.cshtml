@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<form action="Create" comtroller="ExamSession" method="post">
+<form action="ExamSession_Create" controller="ExamSession" method="post">
     @if (Model.Ids != null)
     {
     for (int i = 0; i < Model.Ids.Count(); i++)
@@ -30,7 +30,7 @@
     </div>
     <div class="form-group">
         <label asp-for="Invigilators_Id">Invigilator</label>
-        <select asp-for="Invigilators_Id" name="invigilator" class="form-control invigilators" multiple="multiple">
+        <select asp-for="Invigilators_Id" name="Invigilators_Id" class="form-control invigilators" multiple="multiple">
             <option disabled selected>--Select Invigilators--</option>
             @foreach (var item in ViewBag.Invigilators)
             {

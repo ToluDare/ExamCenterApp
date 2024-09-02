@@ -12,6 +12,7 @@ namespace ExamCenterApp.Models
             date_user_created= DateTime.Now;
             status = User_Status.active;
             guid = Guid.NewGuid().ToString();
+            user_roles = new HashSet<IdentityRole<string>>();
         }
       
         public string? first_name { get; set; }
